@@ -1,1 +1,2 @@
-# homework2.0
+In this repository you can find a page about myself with github account link as well as my linkedin account. Also you will find a page that will let see all the project that I have made.
+Have a look and let me know what do you think about it.
