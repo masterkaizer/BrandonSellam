@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Brandon J sellam</title>
+      <link rel="stylesheet" href="style.css">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+      <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+      <!--===============================================================================================-->
+         <link rel="stylesheet" type="text/css" href="css/util.css">
+         <link rel="stylesheet" type="text/css" href="css/main.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+     
+   </head>
+   <body>
+      <header>
+         <nav class="navbar navbar-default">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                  </button>
+                  <a class="navbar-brand" href="index.html">Brandon J Sellam</a>
+               </div>
+               <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li><a href="index.html">About</a></li>
+                     <li><a href="portfolio.html">Portfolio</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                     <li> </li>
+                  </ul>
+          
+                  <style>
+                     .intros {
+                        box-sizing: content-box;  
+                       
+                       font-size: auto;
+                       width: 280px;
+  height: 26px;
+  padding: 30px;  
+  border: 10px;
+  background-color: rgb( blue);
+                     }
+                     </style>
+                     <div class="intros">
+                        <b>
+         <div id="clockbox"></div>
+         <script style="font-size:36px;color:red;background:blue" type="text/javascript">
+          var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+          
+          function GetClock(){
+          var d=new Date();
+          var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+          var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+          
+          if(nhour==0){ap=" AM";nhour=12;}
+          else if(nhour<12){ap=" AM";}
+          else if(nhour==12){ap=" PM";}
+          else if(nhour>12){ap=" PM";nhour-=12;}
+          
+          if(nmin<=9) nmin="0"+nmin;
+          if(nsec<=9) nsec="0"+nsec;
+          
+          var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+          document.getElementById('clockbox').innerHTML=clocktext;
+          }
+          
+          GetClock();
+          setInterval(GetClock,1000);
+          </script>
+          </b>
+               </div>
+            </div> 
+           <!-- </div> -->
+         </nav>
+      </header>
+      
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Send Me A Message
+				</span>
+
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<label class="label-input100" for="name">Full name</label>
+					<input id="name" class="input100" type="text" name="name" placeholder="Enter your name...">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<label class="label-input100" for="email">Email Address</label>
+					<input id="email" class="input100" type="text" name="email" placeholder="Enter your email...">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<div class="label-input100">What do you need?</div>
+					<div>
+						<select class="js-select2" name="service">
+							<option>Please chooses</option>
+							<option>UI/UX Design</option>
+							<option>eCommerce Bussiness</option>
+							<option>Online Services</option>
+							<option>Other</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<label class="label-input100" for="message">Message</label>
+					<textarea id="message" class="input100" name="message" placeholder="Type your message here..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Send
+					</button>
+				</div>
+
+				<div class="contact100-form-social flex-c-m">
+               <a href="https://github.com/masterkaizer" target="_blank">
+                  <img src="images/GitHub.png" alt="GitHub">
+                  </a>
+                  <a href="https://www.linkedin.com/mwlite/in/sellam-brandon-6941a074" target="_blank">
+                  <img src="images/LinkedIn.png" alt="LinkedIn">
+                  </a>
+                  <a href="https://documentcloud.adobe.com/link/track?uri=urn%3Aaaid%3Ascds%3AUS%3A31873f78-f363-4f85-bda3-9711447593b8" target="_blank">
+                     <img src="images/resume.jpg" width="64" height="64"alt="resume">
+                     </a>
+                     
+            </div>
+          
+            <a href="mailto:brandon.sellam@gmail.com" target="_blank">
+               <img src="images/email.png" width="460" height="60"alt="resume">
+               </a>
+               <a href="tel:+1929-320-5965" target="_blank">
+                  <img src="images/phone.png" width="330" height="60"alt="resume">
+                  </a>
+                 
+			</form>
+
+			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$(".js-select2").each(function(){
+			$(this).on('select2:open', function (e){
+				$(this).parent().next().addClass('eff-focus-selection');
+			});
+		});
+		$(".js-select2").each(function(){
+			$(this).on('select2:close', function (e){
+				$(this).parent().next().removeClass('eff-focus-selection');
+			});
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+
+</html>

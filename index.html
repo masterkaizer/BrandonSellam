@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Brandon J Sellam</title>
+      <link rel="stylesheet" href="style.css">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <header>
+         <nav class="navbar navbar-default">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                  </button>
+                  <a class="navbar-brand" href="index.html">Brandon J Sellam</a>
+               </div>
+               <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li><a href="index.html">About</a></li>
+                     <li><a href="portfolio.html">Portfolio</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <section>
+       
+            <div class="intro">
+               <b>
+         <div id="section-timer"></div>
+         <div class="col-md-2">
+   
+            <div id="clockbox"></div>
+
+            
+            <script style="font-size:36px;color:red;background:blue" type="text/javascript">
+            var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+            
+            function GetClock(){
+            var d=new Date();
+            var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+            var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+            
+            if(nhour==0){ap=" AM";nhour=12;}
+            else if(nhour<12){ap=" AM";}
+            else if(nhour==12){ap=" PM";}
+            else if(nhour>12){ap=" PM";nhour-=12;}
+            
+            if(nmin<=9) nmin="0"+nmin;
+            if(nsec<=9) nsec="0"+nsec;
+            
+            var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+            document.getElementById('clockbox').innerHTML=clocktext;
+            }
+            
+            GetClock();
+            setInterval(GetClock,1000);
+            </script>
+            </B>
+            
+      </section>
+      <section>
+         <div class="wrapper">
+            <div id="main_block">
+               <div class="container-fluid bg-1 text-center">
+                  <h1>About Me</h1>
+                  <div id="section_line"></div>
+                  <div class="col-md-6">
+                     <img class="profile_image" src="images/profile.jpg" alt="Brandon J sellam">
+                  </div>
+                  <div class="col-md-6">
+                     <br/>
+                     <p style="font-size:200%;"><strong>Hi there!</strong></p>
+                     <br>
+                     <p style="font-size:160%;">My name is Brandon sellam. I am starting my journey into this coding world. 
+                        I am 24 years old from France, Paris living now in New York. I speak 3 languages: French, Hebrew, English. I have got my Bachelor's degree in International business and marketing.
+                        I am very keen to know the reason behind whatever technical is happening around me. Learning new things, developing new solutions and solving complex problems
+                        gives me satisfaction.  <br>
+                     <p style="font-size: 160%;">I have my account on Github, where I put up many questions and even answers the existing ones. 
+                        Other than enjoying technical tasks, I love doing adventures, watching movies, helping artists, and doing street plays. 
+                        I want to develop my portfolio with many different projects and help others with them. 
+                     </p>
+
+                     <p style="font-size:160%;"> Feel free to contact me.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="push"></div>
+         </div>
+      </section>
+      <footer class="container-fluid bg-2 text-center">
+         <a href="https://github.com/masterkaizer" target="_blank">
+         <img src="images/GitHub.png" alt="GitHub">
+         </a>
+         <a href="https://www.linkedin.com/mwlite/in/sellam-brandon-6941a074" target="_blank">
+         <img src="images/LinkedIn.png" alt="LinkedIn">
+         </a>
+         <a href="https://documentcloud.adobe.com/link/track?uri=urn%3Aaaid%3Ascds%3AUS%3A31873f78-f363-4f85-bda3-9711447593b8" target="_blank">
+            <img src="images/resume.jpg" width="64" height="64"alt="resume">
+            </a>
+            <a href="mailto:brandon.sellam@gmail.com" target="_blank">
+               <img src="images/email.png" width="540" height="60"alt="resume">
+               </a>
+               <a href="tel:+1929-320-5965" target="_blank">
+                  <img src="images/phone.png" width="300" height="60"alt="resume">
+                  </a>
+        
+           
+   </body>
+</html>
