@@ -328,7 +328,7 @@ var Tooltip = function () {
         this.popperInstance.destroy();
 
         // remove event listeners
-        this._events.forEach(function (_ref) {
+        this._events.forEach((_ref)=> {
           var func = _ref.func,
               event = _ref.event;
 
@@ -376,7 +376,7 @@ var Tooltip = function () {
       var directEvents = [];
       var oppositeEvents = [];
 
-      events.forEach(function (event) {
+      events.forEach((event)=> {
         switch (event) {
           case 'hover':
             directEvents.push('mouseenter');
@@ -394,7 +394,7 @@ var Tooltip = function () {
       });
 
       // schedule show tooltip
-      directEvents.forEach(function (event) {
+      directEvents.forEach((event)=> {
         var func = function func(evt) {
           if (_this2._isOpen === true) {
             return;
@@ -407,7 +407,7 @@ var Tooltip = function () {
       });
 
       // schedule hide tooltip
-      oppositeEvents.forEach(function (event) {
+      oppositeEvents.forEach((event)=> {
         var func = function func(evt) {
           if (evt.usedByTooltip === true) {
             return;
@@ -425,7 +425,7 @@ var Tooltip = function () {
 
       // defaults to 0
       var computedDelay = delay && delay.show || delay || 0;
-      window.setTimeout(function () {
+      window.setTimeout(()=> {
         return _this3._show(reference, options);
       }, computedDelay);
     }
@@ -436,7 +436,7 @@ var Tooltip = function () {
 
       // defaults to 0
       var computedDelay = delay && delay.hide || delay || 0;
-      window.setTimeout(function () {
+      window.setTimeout(()=> {
         if (_this4._isOpen === false) {
           return;
         }

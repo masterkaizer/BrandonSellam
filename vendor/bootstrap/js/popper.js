@@ -38,7 +38,7 @@ var nativeHints = ['native code', '[object MutationObserverConstructor]'];
  * @returns {Boolean}
  */
 var isNative = (function (fn) {
-  return nativeHints.some(function (hint) {
+  return nativeHints.some((hint)=> {
     return (fn || '').toString().indexOf(hint) > -1;
   });
 });
@@ -674,7 +674,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
     }
   };
 
-  var sortedAreas = Object.keys(rects).map(function (key) {
+  var sortedAreas = Object.keys(rects).map((key)=> {
     return _extends({
       key: key
     }, rects[key], {
@@ -684,7 +684,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
     return b.area - a.area;
   });
 
-  var filteredAreas = sortedAreas.filter(function (_ref2) {
+  var filteredAreas = sortedAreas.filter((_ref2)=> {
     var width = _ref2.width,
         height = _ref2.height;
     return width >= popper.clientWidth && height >= popper.clientHeight;
@@ -838,7 +838,7 @@ function findIndex(arr, prop, value) {
 function runModifiers(modifiers, data, ends) {
   var modifiersToRun = ends === undefined ? modifiers : modifiers.slice(0, findIndex(modifiers, 'name', ends));
 
-  modifiersToRun.forEach(function (modifier) {
+  modifiersToRun.forEach((modifier)=> {
     if (modifier.function) {
       console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
     }
@@ -914,7 +914,7 @@ function update() {
  * @returns {Boolean}
  */
 function isModifierEnabled(modifiers, modifierName) {
-  return modifiers.some(function (_ref) {
+  return modifiers.some((_ref)=> {
     var name = _ref.name,
         enabled = _ref.enabled;
     return enabled && name === modifierName;
@@ -1023,7 +1023,7 @@ function removeEventListeners(reference, state) {
   window.removeEventListener('resize', state.updateBound);
 
   // Remove scroll event listener on scroll parents
-  state.scrollParents.forEach(function (target) {
+  state.scrollParents.forEach((target)=> {
     target.removeEventListener('scroll', state.updateBound);
   });
 
@@ -1069,7 +1069,7 @@ function isNumeric(n) {
  * Object with a list of properties and values which will be applied to the element
  */
 function setStyles(element, styles) {
-  Object.keys(styles).forEach(function (prop) {
+  Object.keys(styles).forEach((prop)=> {
     var unit = '';
     // add unit if the value is numeric and is one of the following
     if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
@@ -1088,7 +1088,7 @@ function setStyles(element, styles) {
  * Object with a list of properties and values which will be applied to the element
  */
 function setAttributes(element, attributes) {
-  Object.keys(attributes).forEach(function (prop) {
+  Object.keys(attributes).forEach((prop)=> {
     var value = attributes[prop];
     if (value !== false) {
       element.setAttribute(prop, attributes[prop]);
@@ -1264,7 +1264,7 @@ function isModifierRequired(modifiers, requestingName, requestedName) {
     return name === requestingName;
   });
 
-  var isRequired = !!requesting && modifiers.some(function (modifier) {
+  var isRequired = !!requesting && modifiers.some((modifier)=> {
     return modifier.name === requestedName && modifier.enabled && modifier.order < requesting.order;
   });
 
@@ -1471,7 +1471,7 @@ function flip(data, options) {
       flipOrder = options.behavior;
   }
 
-  flipOrder.forEach(function (step, index) {
+  flipOrder.forEach((step, index)=> {
     if (placement !== step || flipOrder.length === index + 1) {
       return data;
     }
@@ -1624,7 +1624,7 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
 
   // Split the offset string to obtain a list of values and operands
   // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
-  var fragments = offset.split(/(\+|\-)/).map(function (frag) {
+  var fragments = offset.split(/(\+|\-)/).map((frag)=> {
     return frag.trim();
   });
 
@@ -1644,7 +1644,7 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
   var ops = divider !== -1 ? [fragments.slice(0, divider).concat([fragments[divider].split(splitRegex)[0]]), [fragments[divider].split(splitRegex)[1]].concat(fragments.slice(divider + 1))] : [fragments];
 
   // Convert the values with units to absolute pixels to allow our computations
-  ops = ops.map(function (op, index) {
+  ops = ops.map((op, index)=> {
     // Most of the units rely on the orientation of the popper
     var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
     var mergeWithPrevious = false;
@@ -1671,8 +1671,8 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
   });
 
   // Loop trough the offsets arrays and execute the operations
-  ops.forEach(function (op, index) {
-    op.forEach(function (frag, index2) {
+  ops.forEach((op, index)=> {
+    op.forEach((frag, index2) =>{
       if (isNumeric(frag)) {
         offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
       }
@@ -1765,7 +1765,7 @@ function preventOverflow(data, options) {
     }
   };
 
-  order.forEach(function (placement) {
+  order.forEach((placement)=> {
     var side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
     popper = _extends({}, popper, check[side](placement));
   });
@@ -2327,12 +2327,12 @@ var Popper = function () {
 
     // Deep merge modifiers options
     this.options.modifiers = {};
-    Object.keys(_extends({}, Popper.Defaults.modifiers, options.modifiers)).forEach(function (name) {
+    Object.keys(_extends({}, Popper.Defaults.modifiers, options.modifiers)).forEach( (name)=> {
       _this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
     });
 
     // Refactoring modifiers' list (Object => Array)
-    this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
+    this.modifiers = Object.keys(this.options.modifiers).map((name)=> {
       return _extends({
         name: name
       }, _this.options.modifiers[name]);
@@ -2346,7 +2346,7 @@ var Popper = function () {
     // such code is executed in the same order of its modifier
     // they could add new properties to their options configuration
     // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
-    this.modifiers.forEach(function (modifierOptions) {
+    this.modifiers.forEach((modifierOptions)=> {
       if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
         modifierOptions.onLoad(_this.reference, _this.popper, _this.options, modifierOptions, _this.state);
       }

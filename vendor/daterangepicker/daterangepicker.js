@@ -21,7 +21,7 @@
             jQuery = require('jquery');
             if (!jQuery.fn) jQuery.fn = {};
         }
-        var moment = (typeof window !== 'undefined' && typeof window.moment != 'undefined') ? window.moment : require('moment');
+        var moment = (typeof window !== 'undefined' && typeof window.moment !== 'undefined') ? window.moment : require('moment');
         module.exports = factory(moment, jQuery);
     } else {
         // Browser globals
@@ -274,7 +274,7 @@
             this.alwaysShowCalendars = options.alwaysShowCalendars;
 
         // update day names order to firstDay
-        if (this.locale.firstDay != 0) {
+        if (this.locale.firstDay !== 0) {
             var iterator = this.locale.firstDay;
             while (iterator > 0) {
                 this.locale.daysOfWeek.push(this.locale.daysOfWeek.shift());
@@ -292,7 +292,7 @@
 
                 start = end = null;
 
-                if (split.length == 2) {
+                if (split.length === 2) {
                     start = moment(split[0], this.locale.format);
                     end = moment(split[1], this.locale.format);
                 } else if (this.singleDatePicker && val !== "") {
@@ -720,8 +720,8 @@
                 var currentYear = calendar[1][1].year();
                 var maxYear = (maxDate && maxDate.year()) || (currentYear + 5);
                 var minYear = (minDate && minDate.year()) || (currentYear - 50);
-                var inMinYear = currentYear == minYear;
-                var inMaxYear = currentYear == maxYear;
+                var inMinYear = currentYear === minYear;
+                var inMaxYear = currentYear === maxYear;
 
                 var monthHtml = '<select class="monthselect">';
                 for (var m = 0; m < 12; m++) {
@@ -879,7 +879,7 @@
 
                 //Preserve the time already selected
                 var timeSelector = this.container.find('.calendar.right .calendar-time div');
-                if (timeSelector.html() != '') {
+                if (timeSelector.html() !== '') {
 
                     selected.hour(timeSelector.find('.hourselect option:selected').val() || selected.hour());
                     selected.minute(timeSelector.find('.minuteselect option:selected').val() || selected.minute());
@@ -915,7 +915,7 @@
             for (var i = start; i <= end; i++) {
                 var i_in_24 = i;
                 if (!this.timePicker24Hour)
-                    i_in_24 = selected.hour() >= 12 ? (i == 12 ? 12 : i + 12) : (i == 12 ? 0 : i);
+                    i_in_24 = selected.hour() >= 12 ? (i === 12 ? 12 : i + 12) : (i === 12 ? 0 : i);
 
                 var time = selected.clone().hour(i_in_24);
                 var disabled = false;
@@ -924,7 +924,7 @@
                 if (maxDate && time.minute(0).isAfter(maxDate))
                     disabled = true;
 
-                if (i_in_24 == selected.hour() && !disabled) {
+                if (i_in_24 === selected.hour() && !disabled) {
                     html += '<option value="' + i + '" selected="selected">' + i + '</option>';
                 } else if (disabled) {
                     html += '<option value="' + i + '" disabled="disabled" class="disabled">' + i + '</option>';
@@ -951,7 +951,7 @@
                 if (maxDate && time.second(0).isAfter(maxDate))
                     disabled = true;
 
-                if (selected.minute() == i && !disabled) {
+                if (selected.minute() === i && !disabled) {
                     html += '<option value="' + i + '" selected="selected">' + padded + '</option>';
                 } else if (disabled) {
                     html += '<option value="' + i + '" disabled="disabled" class="disabled">' + padded + '</option>';
@@ -979,7 +979,7 @@
                     if (maxDate && time.isAfter(maxDate))
                         disabled = true;
 
-                    if (selected.second() == i && !disabled) {
+                    if (selected.second() === i && !disabled) {
                         html += '<option value="' + i + '" selected="selected">' + padded + '</option>';
                     } else if (disabled) {
                         html += '<option value="' + i + '" disabled="disabled" class="disabled">' + padded + '</option>';
@@ -1163,8 +1163,7 @@
             // itself then call this.hide()
             if (
                 // ie modal dialog fix
-                e.type == "focusin" ||
-                target.closest(this.element).length ||
+                e.type === "focusin" ||
                 target.closest(this.container).length ||
                 target.closest('.calendar-table').length
                 ) return;

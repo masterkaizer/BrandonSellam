@@ -100,7 +100,7 @@ var Util = function ($) {
       called = true;
     });
 
-    setTimeout(function () {
+    setTimeout(()=> {
       if (!called) {
         Util.triggerTransitionEnd(_this);
       }
@@ -765,7 +765,7 @@ var Carousel = function ($) {
             if (_this4.touchTimeout) {
               clearTimeout(_this4.touchTimeout);
             }
-            _this4.touchTimeout = setTimeout(function (event) {
+            _this4.touchTimeout = setTimeout((event)=> {
               return _this4.cycle(event);
             }, TOUCHEVENT_COMPAT_WAIT + _this4._config.interval);
           });
@@ -2504,7 +2504,7 @@ var ScrollSpy = function ($) {
 
       var targets = $.makeArray($(this._selector));
 
-      targets.map(function (element) {
+      targets.map((element)=> {
         var target = void 0;
         var targetSelector = Util.getSelectorFromElement(element);
 
@@ -2614,7 +2614,7 @@ var ScrollSpy = function ($) {
       this._clear();
 
       var queries = this._selector.split(',');
-      queries = queries.map(function (selector) {
+      queries = queries.map((selector)=> {
         return selector + '[data-target="' + target + '"],' + (selector + '[href="' + target + '"]');
       });
 
@@ -3370,7 +3370,7 @@ var Tooltip = function ($) {
 
       var triggers = this.config.trigger.split(' ');
 
-      triggers.forEach(function (trigger) {
+      triggers.forEach((trigger)=> {
         if (trigger === 'click') {
           $(_this26.element).on(_this26.constructor.Event.CLICK, _this26.config.selector, function (event) {
             return _this26.toggle(event);
@@ -3437,7 +3437,7 @@ var Tooltip = function ($) {
         return;
       }
 
-      context._timeout = setTimeout(function () {
+      context._timeout = setTimeout(()=> {
         if (context._hoverState === HoverState.SHOW) {
           context.show();
         }
@@ -3471,7 +3471,7 @@ var Tooltip = function ($) {
         return;
       }
 
-      context._timeout = setTimeout(function () {
+      context._timeout = setTimeout(()=> {
         if (context._hoverState === HoverState.OUT) {
           context.hide();
         }
