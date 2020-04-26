@@ -910,7 +910,7 @@ var Carousel = function ($) {
 
           _this5._isSliding = false;
 
-          setTimeout(function () {
+          setTimeout(()=> {
             return $(_this5._element).trigger(slidEvent);
           }, 0);
         }).emulateTransitionEnd(TRANSITION_DURATION);

@@ -155,7 +155,7 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
 
-      __.settings.timer = setTimeout(function(){
+      __.settings.timer = setTimeout(()=>{
         __.in.call(_this);
         $(window).off('load.' + namespace);
       }, options.timeoutCountdown);

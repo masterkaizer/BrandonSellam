@@ -14,7 +14,7 @@
         var check = true;
 
         for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
+            if(validate(input[i]) === false){
                 showValidate(input[i]);
                 check=false;
             }
@@ -37,7 +37,7 @@
             }
         }
         else {
-            if($(input).val().trim() == ''){
+            if($(input).val().trim() === ''){
                 return false;
             }
         }

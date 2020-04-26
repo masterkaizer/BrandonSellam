@@ -82,7 +82,7 @@ function taskDebounce(fn) {
   return function () {
     if (!scheduled) {
       scheduled = true;
-      setTimeout(function () {
+      setTimeout(()=> {
         scheduled = false;
         fn();
       }, timeoutDuration);
